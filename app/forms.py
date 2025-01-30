@@ -4,6 +4,6 @@ from wtforms.validators import DataRequired
 
 
 class RegistrationForm(FlaskForm):
-    name = StringField('Ваше имя', validators=[DataRequired()])
-    phone_number = StringField('Номер телефона', validators=[DataRequired()])
+    name = StringField('Ваше имя', validators=[DataRequired()], id='floatingName')
+    phone_number = StringField('Номер телефона', validators=[DataRequired()], id='floatingPhone')
     submit = SubmitField('Зарегистрироваться')

@@ -1,4 +1,5 @@
 {% extends 'base.html' %} {% block content %} {% if form %}
+{% import 'bs_form.html' as bs %}
 <form method="post">
     {{ form.hidden_tag() }}
     <img
@@ -10,18 +11,13 @@
     />
     <h1 class="h3 mb-3 fw-normal">Зарегистрируйтесь</h1>
 
-    <div class="form-floating">
-        {{ form.name }}
-        {{ form.name.label }}
-    </div>
-    <div class="form-floating">
-        {{ form.phone_number }}
-        {{ form.phone_number.label }}
-    </div>
-
-    <div>
-        {{ form.submit }}
-    </div>
+    {% set ns = namespace(first_field=true) %}
+    {%- for field in form %}
+        {% if field.widget.input_type != 'hidden' -%}
+          {{ bs.form_field(field, ns.first_field) }}
+          {% set ns.first_field = false %}
+        {%- endif %}
+    {%- endfor %}
 </form>
 
 {% endif %} {% endblock %}
