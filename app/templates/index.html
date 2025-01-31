@@ -17,6 +17,9 @@
           {{ bs.form_field(field, ns.first_field) }}
           {% set ns.first_field = false %}
         {%- endif %}
+        {% for error in field.errors %}
+            <div class="invalid-feedback">{{ error }}</div>
+        {% endfor %}
     {%- endfor %}
 </form>
 

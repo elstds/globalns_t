@@ -11,4 +11,5 @@ def send_querry(phone, name):
         }
     }
     response = requests.post(url=Config.API_LINK, json=data, headers=Config.API_HEADERS)
+    print(response)
     return response.json()
