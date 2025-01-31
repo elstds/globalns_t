@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% block content %} {% if form %}
 {% import 'bs_form.html' as bs %}
-<form method="post">
+<form method="post" action="" novalidate>
     {{ form.hidden_tag() }}
     <img
         class="mb-4"

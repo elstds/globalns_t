@@ -7,9 +7,10 @@ from app.forms import RegistrationForm
 def index():
     form = RegistrationForm()
     if form.validate_on_submit():
-        return redirect(url_for('success'))
+
+        return redirect(url_for('success_registration'))
     return render_template('index.html', title='Зарегистрируйтесь', form=form)
 
-@app.route('/success')
+@app.route('/success', methods=['GET', 'POST'])
 def success_registration():
-    pass
+    return render_template('success.html')
