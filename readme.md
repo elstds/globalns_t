@@ -12,5 +12,13 @@ pip install -r requirements.txt
 ```
 4. 
 ```shell
+flask db init
+```
+5. 
+```shell
+flask db migrate
+```
+6
+```shell
 flask run
 ```
