@@ -8,7 +8,7 @@ from utils import send_querry
 from app.models import User
 
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 @app.route('/index', methods=['GET', 'POST'])
 def index():
     form = RegistrationForm()
@@ -25,6 +25,6 @@ def index():
 
     return render_template('index.html', title='Зарегистрируйтесь', form=form)
 
-@app.route('/success', methods=['GET', 'POST'])
+@app.route('/success')
 def success_registration():
     return render_template('success.html')
